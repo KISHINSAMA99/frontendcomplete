@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 // reactstrap components
 import {
-  NavItem,Label,
-  NavLink,
-  Nav,
-  Card,
-  CardHeader,
-  CardBody,
-  TabContent,
-  TabPane, Input
+  Label,Input
 } from "reactstrap";
 import axios from 'axios';
 // core componentsc
@@ -40,61 +33,21 @@ class NavP extends Component {
   
   manejarSubmit = () => {
     const jsonSend = this.state;
-    const URL = 'http://localhost:4000/api/v1/gastos';
+    const URL = 'https://devf-finanzas.herokuapp.com/api/v1/gastos';
     axios.post(URL, jsonSend)
       .then(res => alert('¡Artículo creado!'))
       .catch(err => alert('Error al crear artículo'))
   };
   
   render() { 
-    const [plainTabs, setPlainTabs] = React.useState("1");
+    //const [plainTabs, setPlainTabs] = React.useState("1");
     return (
       
 <React.Fragment>
-<Card className="card-nav-tabs card-plain">
-        <CardHeader className="card-header-danger">
-          <div className="nav-tabs-navigation">
-            <div className="nav-tabs-wrapper">
-              <Nav data-tabs="tabs" tabs>
-                <NavItem>
-                  <NavLink
-                    className={plainTabs === "1" ? "active" : ""}
-                    href="#pablo"
-                    onClick={e => {
-                      e.preventDefault();
-                      setPlainTabs("1");
-                    }}
-                  >
-                    Gasto
-                  </NavLink>
-                </NavItem>
-                <NavItem>
-                  <NavLink
-                    className={plainTabs === "2" ? "active" : ""}
-                    href="#pablo"
-                    onClick={e => {
-                      e.preventDefault();
-                      setPlainTabs("2");
-                    }}
-                  >
-                    Ingresos
-                  </NavLink>
-                </NavItem>
-              </Nav>
-            </div>
-          </div>
-        </CardHeader>
-        <CardBody>
-          <TabContent
-            className="text-center"
-            activeTab={"plainTabs" + plainTabs}
-          >
-            <TabPane tabId="plainTabs1">
-            
-            <Input placeholder="Ingrese su gasto" value={this.state.precio}
+            <Input placeholder="Ingrese su gasto" value={this.state.monto}
               onChange={this.cambiarInput}
               type="number"
-              name="precio"></Input>
+              name="monto"></Input>
             <Label>Nombre</Label>
             <Input
               value={this.state.nombre}
@@ -118,22 +71,7 @@ class NavP extends Component {
         <option>Otros</option>
       </Input>
       <button onClick={this.manejarSubmit}> Guardar </button>
-            </TabPane>
-            <TabPane tabId="plainTabs2">
-            <Input placeholder="Ingrese su Ingreso" type="text"></Input>
-            <Input type="select">
-        <option>Seleccione Moneda</option>
-        <option>MXN</option>
-        <option>COP</option>
-        <option>USD</option>
-      </Input>
-      <button onClick={this.manejarSubmit}> Guardar </button>
-            </TabPane>
-          </TabContent>
-        </CardBody>
-      </Card>
-
-
+        
 </React.Fragment>
 
       );

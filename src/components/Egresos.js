@@ -14,7 +14,7 @@ class Egresos extends Component {
 
      //El Componente se monto
      componentDidMount(){
-        const URL = 'http://localhost:4000/api/v1/gastos'
+        const URL = 'https://devf-finanzas.herokuapp.com/api/v1/gastos'
         axios.get(URL)
         .then(response => {
             console.log (response.data);

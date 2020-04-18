@@ -27,10 +27,10 @@ const Navigation = (props) => {
         <Collapse isOpen={isOpen} navbar>
           <Nav className="mr-auto" navbar>
             <NavItem>
-              <NavLink href="/components/">Agregar Egreso</NavLink>
+              <NavLink href="https://github.com/KISHINSAMA99/proyecto-finanzas-personales-backend">GitHub backend</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="https://github.com/reactstrap/reactstrap">GitHub</NavLink>
+              <NavLink href="https://github.com/KISHINSAMA99/frontendcomplete">GitHub Frontend</NavLink>
             </NavItem>
             <UncontrolledDropdown nav inNavbar>
               <DropdownToggle nav caret>
@@ -50,7 +50,7 @@ const Navigation = (props) => {
               </DropdownMenu>
             </UncontrolledDropdown>
           </Nav>
-          <NavbarText>Simple Text</NavbarText>
+          <NavbarText></NavbarText>
         </Collapse>
       </Navbar>
     </div>
